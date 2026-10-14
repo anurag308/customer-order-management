@@ -1,6 +1,9 @@
-package com.example.customerorders.customer;
+package com.example.customerorders.service;
 
 import com.example.customerorders.common.NotFoundException;
+import com.example.customerorders.dto.CustomerResponse;
+import com.example.customerorders.entity.Customer;
+import com.example.customerorders.repository.CustomerRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

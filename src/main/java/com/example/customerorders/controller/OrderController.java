@@ -1,5 +1,9 @@
-package com.example.customerorders.order;
+package com.example.customerorders.controller;
 
+import com.example.customerorders.dto.CustomerOrderSummary;
+import com.example.customerorders.dto.OrderRequest;
+import com.example.customerorders.dto.OrderResponse;
+import com.example.customerorders.service.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

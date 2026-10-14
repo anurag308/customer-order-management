@@ -1,8 +1,13 @@
-package com.example.customerorders.order;
+package com.example.customerorders.service;
 
 import com.example.customerorders.common.NotFoundException;
-import com.example.customerorders.customer.Customer;
-import com.example.customerorders.customer.CustomerRepository;
+import com.example.customerorders.dto.CustomerOrderSummary;
+import com.example.customerorders.dto.OrderRequest;
+import com.example.customerorders.dto.OrderResponse;
+import com.example.customerorders.entity.Customer;
+import com.example.customerorders.entity.Order;
+import com.example.customerorders.repository.CustomerRepository;
+import com.example.customerorders.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

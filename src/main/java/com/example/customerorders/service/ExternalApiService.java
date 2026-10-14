@@ -1,6 +1,8 @@
-package com.example.customerorders.integration;
+package com.example.customerorders.service;
 
 import com.example.customerorders.common.NotFoundException;
+import com.example.customerorders.integration.ExternalApiException;
+import com.example.customerorders.integration.ExternalPost;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;

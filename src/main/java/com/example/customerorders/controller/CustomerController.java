@@ -1,5 +1,8 @@
-package com.example.customerorders.customer;
+package com.example.customerorders.controller;
 
+import com.example.customerorders.dto.CustomerRequest;
+import com.example.customerorders.dto.CustomerResponse;
+import com.example.customerorders.service.CustomerService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;

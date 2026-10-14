@@ -1,6 +1,10 @@
-package com.example.customerorders.customer;
+package com.example.customerorders.service;
 
 import com.example.customerorders.common.NotFoundException;
+import com.example.customerorders.dto.CustomerRequest;
+import com.example.customerorders.dto.CustomerResponse;
+import com.example.customerorders.entity.Customer;
+import com.example.customerorders.repository.CustomerRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

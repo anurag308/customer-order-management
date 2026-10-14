@@ -1,7 +1,7 @@
-package com.example.customerorders.order;
+package com.example.customerorders.repository;
 
-import com.example.customerorders.customer.Customer;
-import com.example.customerorders.customer.CustomerRepository;
+import com.example.customerorders.entity.Customer;
+import com.example.customerorders.entity.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

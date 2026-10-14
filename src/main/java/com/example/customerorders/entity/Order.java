@@ -1,6 +1,5 @@
-package com.example.customerorders.order;
+package com.example.customerorders.entity;
 
-import com.example.customerorders.customer.Customer;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

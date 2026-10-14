@@ -28,6 +28,15 @@ The application starts at `http://localhost:8080`. H2 is in-memory, and sample c
 
 On macOS/Linux, use `./mvnw` instead.
 
+## Package layout
+
+- `controller` contains the REST endpoints.
+- `service` contains business logic and the external API client flow.
+- `repository` contains Spring Data persistence interfaces.
+- `entity` contains JPA entities.
+- `dto` contains request/response models and query projections.
+- `common`, `config`, `integration`, and `logging` hold shared concerns and infrastructure.
+
 ## API documentation and database console
 
 - Swagger UI: `http://localhost:8080/swagger-ui.html`

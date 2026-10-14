@@ -1,9 +1,9 @@
 package com.example.customerorders.config;
 
-import com.example.customerorders.customer.Customer;
-import com.example.customerorders.customer.CustomerRepository;
-import com.example.customerorders.order.Order;
-import com.example.customerorders.order.OrderRepository;
+import com.example.customerorders.entity.Customer;
+import com.example.customerorders.entity.Order;
+import com.example.customerorders.repository.CustomerRepository;
+import com.example.customerorders.repository.OrderRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
