@@ -1,0 +1,15 @@
+package com.example.customerorders.order;
+
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
+import java.math.BigDecimal;
+
+public record OrderRequest(
+        @NotBlank @Size(max = 40) String orderNumber,
+        @NotNull @DecimalMin(value = "0.01") BigDecimal amount,
+        @NotBlank @Size(max = 30) String status,
+        @NotNull Long customerId) {
+}

@@ -1,0 +1,101 @@
+{
+  "info": {
+    "_postman_id": "72a2a6a2-3e56-4c18-87d4-fb25ad531101",
+    "name": "Customer Orders API",
+    "description": "Examples for the Spring Boot Customer Orders API. Start the app before sending requests.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" },
+    { "key": "customerId", "value": "1" },
+    { "key": "createdCustomerId", "value": "" },
+    { "key": "orderId", "value": "1" }
+  ],
+  "item": [
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "Search customers (paged)",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/customers/search?q=alice&page=0&size=10&sort=name,asc" }
+        },
+        {
+          "name": "Get customer",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/customers/{{customerId}}" }
+        },
+        {
+          "name": "Create customer",
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["if (pm.response.code === 201) pm.collectionVariables.set('createdCustomerId', pm.response.json().id);"] } }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Taylor Example\",\n  \"email\": \"taylor@example.com\"\n}", "options": { "raw": { "language": "json" } } },
+            "url": "{{baseUrl}}/api/customers"
+          }
+        },
+        {
+          "name": "Update customer",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Taylor Updated\",\n  \"email\": \"taylor.updated@example.com\"\n}", "options": { "raw": { "language": "json" } } },
+            "url": "{{baseUrl}}/api/customers/{{createdCustomerId}}"
+          }
+        },
+        {
+          "name": "Delete customer",
+          "request": { "method": "DELETE", "header": [], "url": "{{baseUrl}}/api/customers/{{createdCustomerId}}" }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "List orders",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/orders" }
+        },
+        {
+          "name": "Get order",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/orders/{{orderId}}" }
+        },
+        {
+          "name": "Orders by customer (join query)",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/orders/by-customer/{{customerId}}" }
+        },
+        {
+          "name": "Create order",
+          "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": ["if (pm.response.code === 201) pm.collectionVariables.set('orderId', pm.response.json().id);"] } }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"orderNumber\": \"ORD-2001\",\n  \"amount\": 79.95,\n  \"status\": \"PLACED\",\n  \"customerId\": 1\n}", "options": { "raw": { "language": "json" } } },
+            "url": "{{baseUrl}}/api/orders"
+          }
+        },
+        {
+          "name": "Update order",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"orderNumber\": \"ORD-2001\",\n  \"amount\": 89.95,\n  \"status\": \"SHIPPED\",\n  \"customerId\": 1\n}", "options": { "raw": { "language": "json" } } },
+            "url": "{{baseUrl}}/api/orders/{{orderId}}"
+          }
+        },
+        {
+          "name": "Delete order",
+          "request": { "method": "DELETE", "header": [], "url": "{{baseUrl}}/api/orders/{{orderId}}" }
+        }
+      ]
+    },
+    {
+      "name": "External API",
+      "item": [
+        {
+          "name": "Fetch JSONPlaceholder post",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/external/posts/1" }
+        }
+      ]
+    }
+  ]
+}
